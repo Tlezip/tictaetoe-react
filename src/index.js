@@ -3,7 +3,7 @@ import ReactDOM from 'react-dom';
 import './index.css';
 
 function Square(props) {
-    if(props.squarewinners !== "none"){
+    if(props.squarewinners){
         return (
             <button className="squareright" onClick={props.onClick}>
                 {props.value}
@@ -24,7 +24,7 @@ class Board extends React.Component {
                 <Square
                     value={this.props.squares[i]}
                     onClick={() => this.props.onClick(i)}
-                    squarewinners = "true"
+                    squarewinners = {true}
                 />
             );
         }
@@ -32,7 +32,7 @@ class Board extends React.Component {
             <Square
                 value={this.props.squares[i]}
                 onClick={() => this.props.onClick(i)}
-                squarewinners = "none"
+                squarewinners = {false}
             />
         );
     }
